@@ -1,16 +1,21 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { AxesHelper, Color, Mesh, ShaderMaterial } from "three";
+import { AxesHelper } from "three";
 import { useStore } from "./store";
 import { Leva, useControls } from "leva";
 
 export default function App() {
-  const setNumbers = useStore((state) => state.setNumbers);
-  const numbers = useStore((state) => state.numbers);
+  const setInputValue = useStore((state) => state.setInputValue);
+  const inputValue = useStore((state) => state.inputValue);
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
+      <input
+        type="number"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
       <Leva />
 
       <Canvas camera={{ position: [0, 5, 10], fov: 50 }}>

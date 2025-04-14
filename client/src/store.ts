@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
 interface CubeStore {
-  numbers: number[];
-  setNumbers: (numbers: number[]) => void;
+  inputValue: string;
+  setInputValue: (string: string) => void;
 }
 
 export const useStore = create<CubeStore>((set) => ({
-  numbers: [3, 5, 2, 4],
-  setNumbers: (numbers) => set({ numbers }),
+  inputValue: "",
+  setInputValue: (inputValue) => set({ inputValue }),
 }));
